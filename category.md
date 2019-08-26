@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Category
+title: 分类
 permalink: /category
 ---
 
@@ -8,7 +8,7 @@ permalink: /category
   var key = location.pathname;
   key = key.substring('/category/'.length);
   if (key.indexOf('/') != -1) {
-    key = '';
+    key = key.substring(0, key.indexOf('/'));
   }
 </script>
 

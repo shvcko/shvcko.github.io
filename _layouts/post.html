@@ -13,3 +13,7 @@ layout: base
   </div>
 
 </article>
+
+{% if site.disqus.comments %}
+  {% include disqus.html %}
+{% endif %}

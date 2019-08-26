@@ -7,7 +7,13 @@
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
   
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <title>
+  {% if page.title == Home %}
+    {{ site.title }} | {{ site.subtitle }}
+  {% else %}
+    {{ page.title }} | {{ site.title }}
+  {% endif %}
+  </title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
   <link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -80,7 +86,7 @@
                 <ul class="category-list">
                   {% for category in site.categories %}
                     <li class="category-list-item">
-                      <a class="category-list-link" href="{{ site.baseurl }}/category/{{ category[0] }}">{{ category[0] }}</a>
+                      <a class="category-list-link" href="{{ site.baseurl }}/category/{{ category[0] }}/">{{ category[0] }}</a>
                     </li>
                   {% endfor %}
                 </ul>
@@ -90,7 +96,7 @@
                 <div class="widget-title">标签</div>
                 <div class="tagcloud">
                   {% for tag in site.tags %}
-                    <a href="{{ site.baseurl }}/tag/{{ tag[0] }}" style="font-size: 15px;">{{ tag[0] }}</a>
+                    <a href="{{ site.baseurl }}/tag/{{ tag[0] }}/" style="font-size: 15px;">{{ tag[0] }}</a>
                   {% endfor %}
                 </div>
             </div>
@@ -98,25 +104,31 @@
             <div class="widget">
                 <div class="widget-title">相关推荐</div>
                 <ul class="post-list">
-                {% for post in site.related_posts %}
-                  <li class="post-list-item"><a class="post-list-link" href="{{ post.url | prepend: site.baseurl }}">{% if post.title %} {{ post.title }} {% else %} {{ site.page_no_title }} {% endif %}</a></li>
-                {% endfor %}
+                {% if site.related_posts %}
+                    {% for post in site.related_posts %}
+                      <li class="post-list-item"><a class="post-list-link" href="{{ post.url | prepend: site.baseurl }}">{% if post.title %} {{ post.title }} {% else %} {{ site.page_no_title }} {% endif %}</a></li>
+                    {% endfor %}
+                {% else %}
+                    {% for post in site.posts limit:5 %}
+                      <li class="post-list-item"><a class="post-list-link" href="{{ post.url | prepend: site.baseurl }}">{% if post.title %} {{ post.title }} {% else %} {{ site.page_no_title }} {% endif %}</a></li>
+                    {% endfor %}
+                {% endif %}
                 </ul>
             </div>
               
-            <div class="widget">
+            <!--div class="widget">
               <div class="widget-title">友情链接</div>
               {% for link in site.links %}
                 <a href="{{ site.baseurl }}/{{ menu.directory }}"><i class="{{ menu.icon }}"> {{ menu.page }}</i></a>
                 <ul></ul><a href="{{ link.url }}" title="{{ link.title }}" target="_blank">{{ link.title }}</a>
               {% endfor %}
-            </div>
+            </div-->
           </div>
         </div>
       </div>
       
-      <div id="footer">© 2016 
-        <a href="/." rel="nofollow">{{ site.title }}.</a> Theme by<a rel="nofollow" target="_blank" href="https://github.com/alafighting/maupassant-jekyll"> Maupassant.</a>
+      <div id="footer">
+        &copy; 2019 <a href="/.">{{ site.title }}</a>, All rights reserved.
         {% if site.beian %}
         <a rel="nofollow" target="_blank" href="http://www.miitbeian.gov.cn/"> {{ site.beian }}.</a>
         {% endif %}

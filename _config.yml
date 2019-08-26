@@ -11,6 +11,7 @@ email: email@yourdomain.com
 # Build settings
 markdown: kramdown
 gems: [jekyll-paginate]
+permalink: pretty
 
 # Pageinate settings
 paginate: 10 # 分页大小
@@ -20,23 +21,28 @@ paginate_path: ":num"
 baidu_search: true
 google_search: # true
 
+# Change 'comments' to true for Disqus comments
+disqus:
+  comments: true
+  disqus_shortname: 'hybt'
+
 # Menu settings
 menu:
   - page: 首页
     directory: .
-    icon: icon-home
+    #icon: icon-home
   - page: 归档
     directory: archives/
-    icon: icon-archive
+    #icon: icon-archive
   - page: 关于
     directory: about/
-    icon: icon-about
-  - page: 历史
-    directory: history/
-    icon: icon-history
+    #icon: icon-about
+  #- page: 历史
+  #  directory: history/
+  #  icon: icon-history
   - page: 订阅
     directory: feed.xml
-    icon: icon-rss
+    #icon: icon-rss
 
 # Link settings
 links: # 友情链接

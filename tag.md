@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Tag
+title: 标签
 permalink: /tag
 ---
 
@@ -8,7 +8,7 @@ permalink: /tag
   var key = location.pathname;
   key = key.substring('/tag/'.length);
   if (key.indexOf('/') != -1) {
-    key = '';
+    key = key.substring(0, key.indexOf('/'));
   }
 </script>
 

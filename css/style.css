@@ -112,7 +112,7 @@ a:focus {
       margin-top: 10px; }
       #sidebar .widget .tagcloud a {
         line-height: 1.5;
-        padding: 5px; }
+        padding-right: 5px; }
     #sidebar .widget ul {
       list-style: none;
       padding: 0; }
@@ -496,8 +496,8 @@ div {
   padding-bottom: 2px;
   padding-left: 10px;
   padding-right: 10px;
-  border: 1px solid #999;
-  border-radius: 7px;
+  #border: 1px solid #999;
+  #border-radius: 7px;
   float: right; }
   .readmore a:hover {
     color: #444;
