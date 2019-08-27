@@ -1,7 +1,7 @@
 # Site settings
-title: 博客标题
-subtitle: 博客副标题
-description: 博客描述
+title: "Liang's Blog"
+subtitle: "陈亮亮"
+description: "一个关于搜索引擎、流计算、大数据及分布式相关技术的博客"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://yourdomain.com" # 你的域名
 page_no_title: "No title" # 文章无标题时默认显示内容
@@ -14,7 +14,7 @@ gems: [jekyll-paginate]
 permalink: pretty
 
 # Pageinate settings
-paginate: 10 # 分页大小
+paginate: 5 # 分页大小
 paginate_path: ":num"
 
 # Search settings
@@ -23,8 +23,8 @@ google_search: # true
 
 # Change 'comments' to true for Disqus comments
 disqus:
-  comments: false
-  disqus_shortname: 'your-shortcutname'
+  comments: true
+  disqus_shortname: 'toxic-07'
 
 # Menu settings
 menu:
