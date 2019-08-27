@@ -23,8 +23,8 @@ google_search: # true
 
 # Change 'comments' to true for Disqus comments
 disqus:
-  comments: true
-  disqus_shortname: 'hybt'
+  comments: false
+  disqus_shortname: 'your-shortcutname'
 
 # Menu settings
 menu:

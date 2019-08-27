@@ -5,10 +5,23 @@ permalink: /tag
 ---
 
 <script>
-  var key = location.pathname;
-  key = key.substring('/tag/'.length);
+  var query = location.search;
+  query = query.substring(1);
+  var kvs = query.split('&');
+  var key;
+  for (var i=0;i<kvs.length;i++){
+    var kv = kvs[i];
+    var k = kv.split('=');
+    if (k.length == 2) {
+      if (k[0] == 'key') {
+        key = k[1];
+      }
+    }
+  }
   if (key.indexOf('/') != -1) {
-    key = key.substring(0, key.indexOf('/'));
+    key = '';
+  } else {
+    key = decodeURI(key);
   }
 </script>
 
