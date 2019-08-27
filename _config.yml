@@ -1,7 +1,7 @@
 # Site settings
 title: "Liang's Blog"
 subtitle: "陈亮亮"
-description: "一个关于搜索引擎、流计算、大数据及分布式相关技术的博客"
+description: "一个神奇的网站"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://yourdomain.com" # 你的域名
 page_no_title: "No title" # 文章无标题时默认显示内容
