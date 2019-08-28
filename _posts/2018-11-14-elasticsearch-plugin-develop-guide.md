@@ -35,7 +35,7 @@ Elasticsearch 版本：5.6.13，
 **第二步：添加 Elasticsearch 核心依赖**
 
 在 pom.xml 中添加如下依赖：
-```
+```xml
 <properties>
     <elasticsearch.version>5.6.13</elasticsearch.version>
 </properties>
@@ -55,7 +55,7 @@ Elasticsearch 版本：5.6.13，
 **第三步：插件开发配置**
 
 根据 Elasticsearch 要求（https://www.elastic.co/guide/en/elasticsearch/plugins/master/plugin-authors.html#_plugin_descriptor_file），所有的插件必须包含一个名为 plugin-descriptor.properties 的插件描述文件，对其内容有要求且必须放置在 elasticsearch 目录下。我们在 src/main/resources 目录下创建 plugin-descriptor.properties 并添加内容如下：
-```
+```ini
 description=A Elasticsearch demo plugin
 version=0.1-beta1
 name=DemoPlugin
@@ -91,7 +91,7 @@ elasticsearch.version=5.6.13
 ```
 
 配置 Maven Assembly 插件：
-```
+```xml
     <build>
         <plugins>
             <plugin>
@@ -119,8 +119,8 @@ elasticsearch.version=5.6.13
 ```
 
 在 resource 中过滤 plugin-descriptor.properties（无需打包进 plugin 的 jar 中）：
-```
-<resources>
+```xml
+        <resources>
             <resource>
                 <directory>src/main/resources</directory>
                 <filtering>false</filtering>
@@ -132,7 +132,7 @@ elasticsearch.version=5.6.13
 ```
 
 最后，配置 Maven 的 compile 插件使其使用 jdk 1.8 版本：
-```
+```xml
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -147,7 +147,7 @@ elasticsearch.version=5.6.13
 **第四步：创建插件项目结构及主类**
 
 在 src/main/java 下创建 package: `com.netease.panther`，在 package 下创建主类：DemoPlugin，并继承Elasticsearch Plugin 类：
-```
+```java
 package com.netease.panther;
 
 import org.elasticsearch.plugins.Plugin;
@@ -162,12 +162,12 @@ Elasticsearch 本身提供了一个非常方便的测试框架，便于大家进
 
 添加测试相关依赖：
 
-```
+```xml
 <properties>
     <log4j.version>2.11.1</log4j.version>
 </properties>
 
-        &lt;-- for testing -->
+        <-- for testing -->
         <dependency>
             <groupId>org.elasticsearch.test</groupId>
             <artifactId>framework</artifactId>
@@ -189,7 +189,7 @@ Elasticsearch 本身提供了一个非常方便的测试框架，便于大家进
 ```
 
 继承 ESIntegTestCase 进行项目集成测试：
-```
+```java
 package com.netease.panther;
 
 import org.elasticsearch.action.admin.cluster.node.info.NodeInfo;
@@ -234,7 +234,7 @@ public class DemoPluginTest extends ESIntegTestCase {
 
 **第六步：编译**
 
-```
+```shell
 mvn clean package
 ```
 
@@ -244,7 +244,7 @@ mvn clean package
 
 使用 Elasticsearch 插件安装命令：
 
-```
+```shell
 bin/elasticsearch-plugin install file:///path/to/target/plugin-demo-1.0-SNAPSHOT.zip
 ```
 
