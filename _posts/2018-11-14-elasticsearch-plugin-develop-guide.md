@@ -146,7 +146,7 @@ elasticsearch.version=5.6.13
 
 **第四步：创建插件项目结构及主类**
 
-在 src/main/java 下创建 package: `com.netease.panther`，在 package 下创建主类：DemoPlugin，并继承Elasticsearch Plugin 类：
+在 src/main/java 下创建 package: `com.netease.panther`，在 package 下创建主类：DemoPlugin，并继承 Elasticsearch Plugin 类：
 ```java
 package com.netease.panther;
 
@@ -167,7 +167,7 @@ Elasticsearch 本身提供了一个非常方便的测试框架，便于大家进
     <log4j.version>2.11.1</log4j.version>
 </properties>
 
-        <-- for testing -->
+        <!-- for testing -->
         <dependency>
             <groupId>org.elasticsearch.test</groupId>
             <artifactId>framework</artifactId>
