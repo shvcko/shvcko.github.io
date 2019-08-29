@@ -3,7 +3,7 @@ title: "Liang's Blog"
 subtitle: "陈亮亮"
 description: "一个神奇的网站"
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # 你的域名
+url: "http://helloyoubeautifulthing.net"
 page_no_title: "No title" # 文章无标题时默认显示内容
 beian: # "备案号"
 email: email@yourdomain.com
@@ -12,7 +12,6 @@ email: email@yourdomain.com
 markdown: kramdown
 kramdown:
   input: GFM
-#markdown: CommonMarkGhPages
 highlighter: rouge
 plugins: [jekyll-paginate]
 permalink: pretty
