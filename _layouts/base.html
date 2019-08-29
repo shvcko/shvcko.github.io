@@ -120,7 +120,7 @@
       </div>
       
       <div id="footer">
-        &copy; 2019 <a href="/.">{{ site.title }}</a>, All rights reserved.
+        &copy; 2016<script>new Date().getFullYear()>2016&&document.write("-"+new Date().getFullYear());</script> <a href="/.">{{ site.title }}</a>, All rights reserved.
         {% if site.beian %}
         <a rel="nofollow" target="_blank" href="http://www.miitbeian.gov.cn/"> {{ site.beian }}.</a>
         {% endif %}
