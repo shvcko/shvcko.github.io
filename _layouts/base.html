@@ -109,7 +109,7 @@
                 <div class="widget-title">相关推荐</div>
                 <ul class="post-list">
                 {% if site.related_posts %}
-                    {% for post in site.related_posts %}
+                    {% for post in site.related_posts limit:5 %}
                       <li class="post-list-item"><a class="post-list-link" href="{{ post.url | prepend: site.baseurl }}">{% if post.title %} {{ post.title }} {% else %} {{ site.page_no_title }} {% endif %}</a></li>
                     {% endfor %}
                 {% else %}
