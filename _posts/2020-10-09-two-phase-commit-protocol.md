@@ -5,7 +5,7 @@ categories: blog
 tags: ["2PC", "两阶段提交", " 三阶段提交", "Paxos", "共识算法", "分布式一致性", "分布式事务", "事务处理"]
 ---
 
-虽然两阶段提交协议只是 Paxos 协议的一个特例（参见 Jim Gray & Leslie Lamport 对两种协议的比较，2004），但 2PC 在传统的数据库分布式事务处理中有着广泛的应用，因此研究 2PC 及其具体的实现仍具有一定的意义。
+虽然两阶段提交协议只是 Paxos 协议的一个特例（参见 Jim Gray & Leslie Lamport 对两种协议的比较，Consensus on Transaction Commit，2004），但 2PC 在传统的数据库分布式事务处理中有着广泛的应用，因此研究 2PC 及其具体的实现仍具有一定的意义。
 
 **介绍**
 
@@ -17,7 +17,7 @@ tags: ["2PC", "两阶段提交", " 三阶段提交", "Paxos", "共识算法", "�
 
 对于一个解决了并发控制和恢复问题的系统来说，在用户看来，所有程序的执行都是原子的——就像没有其他程序在并行执行，可靠的——就像没有故障发生。这种原子的可靠的程序执行过程就称之为事务。
 
-集中式和分布式事务处理之间的一个重要区别在于故障的性质。在集中式系统中，故障是要么全错要么没错（all-or-nothing）。而在分布式系统中，我们可能会出现部分故障（partial failures）。部分结果正常，而部分结果异常。
+集中式和分布式事务处理之间的一个重要区别在于故障的性质。在集中式系统中，故障是要么全发生要么没发生（all-or-nothing）。而在分布式系统中，我们可能会出现部分故障（partial failures）。部分结果正常，而部分结果异常。
 
 分布式系统中的故障不一定会产生集中式故障的特性，为分布式系统提高自身可靠性创造了机会，但也为很多问题创造了困难。比如分布式事务处理中的事务终止一致性（consistent termination）。在事务处理中（并且在没有数据复制的情况下），必须在其中事务访问数据项的所有节点上处理分布式事务的“提交”或“中止”操作。由于可能会出现局部故障，因此要确保在多个节点上始终执行单个逻辑操作（“提交”或“中止”）相当复杂。
 
@@ -66,7 +66,7 @@ AC3 是说只有当事务执行中涉及的所有节点都同意时事务才能�
 **Proposition 1.** 如果可能发生通信故障或者完全故障，那么所有的 ACPs 都可能会导致进程被阻塞。  
 **Proposition 2.** 没有一种 ACP 可以保证故障进程的独立可恢复性。
 
-**两阶段提交协议（THE TWO PHASE COMMIT PROTOCOL ）**
+**两阶段提交协议（THE TWO PHASE COMMIT PROTOCOL）**
 
 两阶段提交协议是最简单最流行的 ACP。在没有故障发生的情况下，它的执行过程如下：
 1. 协调者发送一个 VOTE-REQ（也即 vote request） 消息给所有的参与者。
@@ -154,7 +154,7 @@ AC3 是说只有当事务执行中涉及的所有节点都同意时事务才能�
 
 三阶段提交协议虽然对二阶段提交协议做了改进，但仍然不是一个完美的协议，且增加了二阶段提交协议的复杂度（参照 Jim Gray & Leslie Lamport，Consensus on Transaction Commit 中的评述）。
 
-2、Google chubby 服务的创建者 Mike Burrows 说过“世界上只有一种一致性协议，那就是 Paxos” ——所有其他的方法都只是 Paxos 的一个特化版本。
+2、Google Chubby 服务的创建者 Mike Burrows 说过“世界上只有一种一致性协议，那就是 Paxos” ——所有其他的方法都只是 Paxos 的一个特化版本。
 
 **参考资料**  
 [1]. Concurrency Control and Recovery in Database Systems. Chapter 7, DISTRIBUTED RECOVERY. https://courses.cs.washington.edu/courses/cse551/09au/papers/CSE550BHG-Ch7.pdf  
