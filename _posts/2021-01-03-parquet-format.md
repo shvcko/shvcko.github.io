@@ -2,7 +2,7 @@
 layout: post
 title: "一文讲透大数据列存标准格式 - Parquet"
 categories: blog
-tags: ["Parquet", "Dremel", "Column-oriented Storage", "OLAP", "大数据", "数据湖", "实时数仓"]
+tags: ["Parquet", "Dremel", "Column-oriented Storage", "OLAP", "大数据", "大数据分析", "数据湖", "实时数仓"]
 ---
 
 大规模分析型数据处理在互联网乃至其他行业公司中都已经应用的越来越广泛，尤其是当前已经可以用廉价的存储来收集和保存海量的业务数据情况下。如何让分析师和工程师便捷的利用这些数据也变得越来越重要。列式存储（Column-oriented Storage）是大数据场景面向分析型数据的主流存储方式。与行式存储相比，列存由于可以只提取部分数据列、同列同质数据拥有更好的编码及压缩方式，因此在 OLAP 场景下能提供更好的 IO 性能。
