@@ -49,9 +49,9 @@ menu:
 
 # Link settings
 links: # 友情链接
-  - title: site-name1
-    url: http://www.example1.com/
-  - title: site-name2
-    url: http://www.example2.com/
-  - title: site-name3
-    url: http://www.example3.com/
+  - title: JSON 在线解析/格式化 - JsonTool.cn
+    url: https://jsontool.cn
+  #- title: site-name2
+  #  url: http://www.example2.com/
+  #- title: site-name3
+  #  url: http://www.example3.com/
